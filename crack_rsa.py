@@ -2,25 +2,26 @@
 import sys
 from prime_factors import prime_factors_gen
 from gcd import gcd
+import random
+from math import floor
+
+def guess_g(N):
+    return random.randrange(floor(N/2))
 
 def select_g_with_no_common_factors_of(N):
-    factors = []
-    for p in prime_factors_gen(N):
-        factors.append(p)
+    # g must be even
+    g = 1
+    while g % 2 != 0:
+        g = guess_g(N)    
+        print(f'g: {g}')
 
-    factors.sort()
-    print(factors)
-
-    # c = len(factors) - 1
-    # while c >= 0:
-    for c in range(0, len(factors)):
-        g = factors[c] + 1
-        g2 = factors[c] - 1
-        print(f'g: {g} g2: {g2}')
-        if gcd(N, g) == 1:
-            return g
-        elif gcd(N, g2) == 1:
-            return g2
+    g1 = g + 1
+    g2 = g - 1
+    print(f'g: {g} g1: {g1} g2: {g2}')
+    if gcd(N, g) == 1:
+        return g
+    elif gcd(N, g2) == 1:
+        return g2
     return 0
 
 def calculate_gr_modN_eq_1(N, g):
