@@ -5,6 +5,8 @@ from gcd import gcd
 import random
 from math import floor
 
+sys.set_int_max_str_digits(100000)
+
 def guess_g(N):
     return random.randrange(floor(N/2))
 
@@ -28,17 +30,23 @@ def calculate_gr_modN_eq_1(N, g):
     r = 1
     modN = 0
     while modN != 1:
-        gr = g**r
+        gr = g**r        
         modN = (gr) % N
+        if gr == 0 and modN == 0:
+            break
         print(f'g**r: {gr} modN: {modN}')
         if modN == 1:
             return r
         r += 1
 
 def factor_out_p_and_q(N, g, r):
-    gr = g**(r/2)
     p = -1
     q = -1
+    try:
+        gr = g**(r/2)
+    except OverflowError:
+        return p, q
+    
     value1 = gr+1
     modulo = N
     while int(p) != 0:
@@ -69,9 +77,14 @@ def factor_out_p_and_q(N, g, r):
 
 def crack(N):    
     # print(f'N: {N}')
-    g = select_g_with_no_common_factors_of(N)
-    r = calculate_gr_modN_eq_1(N, g)
-    p, q = factor_out_p_and_q(N, g, r)
+    p = 1
+    q = 1
+    while (p <= 1 or q <= 1) or (p*q != N):
+        g = select_g_with_no_common_factors_of(N)
+        r = calculate_gr_modN_eq_1(N, g)
+        if r and r > 1:
+            p, q = factor_out_p_and_q(N, g, r)
+
     print(f'N: {N} g: {g} r: {r} p: {p} q: {q}')
 
 if __name__ == "__main__" and len(sys.argv) > 0:
