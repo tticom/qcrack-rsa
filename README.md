@@ -2,7 +2,10 @@
 
 An implementation of the algorithm described in Veratasiums Youtube video
 
-[![Watch the video]"How Quantum Computers Break The Internet... Starting Now"](https://youtube.com/watch?v=-UrdExQW0cs&si=EnSIkaIECMiOmarE)
+
+<a href="https://youtube.com/watch?v=-UrdExQW0cs&si=EnSIkaIECMiOmarE)" target="_blank">
+    "How Quantum Computers Break The Internet... Starting Now"
+</a>
 
 use python primesto.py <any integer> 
 python primesto.py 100
