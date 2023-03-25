@@ -2,14 +2,8 @@
 
 An implementation of the algorithm described in Veratasiums Youtube video
 
-[![Watch the video](https://img.youtube.com/vi/UrdExQW0cs/0.jpg)](https://www.youtube.com/watch?v=-UrdExQW0cs)
+[![How Quantum Computers Break The Internet... Starting Now](https://img.youtube.com/vi/UrdExQW0cs/default.jpg)](https://www.youtube-nocookie.com/embed/-UrdExQW0cs)
 
-
-<a href="https://www.youtube.com/watch?v=-UrdExQW0cs" target="_blank">
-    How Quantum Computers Break The Internet... Starting Now
-</a>
-
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/-UrdExQW0cs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 use python primesto.py <any integer> 
 python primesto.py 100
